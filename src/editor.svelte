@@ -1,9 +1,17 @@
 <span> 
-    <input bind:value = {item.name} placeholder = "Name" />
-    <input bind:value = {item.amount} placeholder = "Amount" />
-    Sorry It isn't Editable Yet Sadly :( We will fix It ASAP. So please Be patient Thank you.
+    <input bind:value = {data.name} placeholder = "Name" />
+    <input bind:value = {data.amount} placeholder = "Amount" />
+    <button on:click = {update}></button>
 </span>
 
 <script>
-    export let item = {name:'', amount:0}
+
+    // import {data} from './store.js'
+    export let data = {name:'', amount:0}
+
+    function update(){
+        // data.name = item.name
+        // data.value = item.amount
+    }
+
 </script>
