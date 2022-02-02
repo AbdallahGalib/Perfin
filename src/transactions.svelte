@@ -38,5 +38,5 @@
 <style>
 	
 	ul, li {padding:0.5rem;; margin: 0}
-    .selected {background-color: blue;}
+    .selected {background-color: rgb(100, 100, 100);}
 </style>
