@@ -1,6 +1,13 @@
 <span> 
-    <input bind:value = {data.name} placeholder = "Name" />
-    <input bind:value = {data.amount} placeholder = "Amount" />
+    <!-- <input bind:value = {data.name} placeholder = "Name" /> -->
+    {#if data.editing || data.adding}
+        <input bind:value = {data.name} placeholder = "Name" />
+        <input bind:value = {data.amount} placeholder = "Amount" />
+    {:else}
+    <span>{data.name}</span>
+        <span>{data.amount}</span>
+    {/if}
+
     <button on:click = {update}></button>
 </span>
 
