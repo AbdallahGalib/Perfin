@@ -4,31 +4,31 @@
         <span class = "ml-auto">
         <button on:click = "{add}">add</button>
         <button on:click = "{save}">save</button>
-        <button on:click = "{remove}">remove</button>
     </span>
     </h1>
 	<ul>
-		{#each transactions as transaction}
-			<li><Transaction data={transaction}/></li>
+		{#each $transactions as transaction}
+			<li on:click = "{()=> {selected = transaction}}" class:selected = "{selected === transaction}"><Transaction data={transaction}/></li>
 		{/each}
 	</ul>
 </div>
 
 <script>
-	import {data} from './store.js'
+	import {transactions} from './store.js'
 	import Editor from './editor.svelte'
 	import Transaction from './Transaction.svelte'
 	let selected
-	let transactions = localStorage.getItem('transactions')
-    transactions = transactions ? JSON.parse(transactions) : []
+	// transactions = localStorage.getItem('transactions')
+    // transactions = transactions ? JSON.parse(transactions) : []
     function add(){
-        transactions = [{name:'', amount:0, adding:true}, ...transactions]
+        // transactions = [{name:'', amount:0, adding:true}, ...transactions]
+        let max = $transactions.length == 0 ? 0 : $transactions.reduce(function(a, b) {
+            return a.id > b.id ? a.id : b.id; 
+        })
+        transactions.update(arr => [{id: max + 1, name:'', amount:0, adding:true}, ...$transactions])
     }
     function save(){
-        localStorage.setItem( 'transactions', JSON.stringify(transactions) )
-    }
-    function remove(){
-        
+        localStorage.setItem( 'transactions', JSON.stringify($transactions) )
     }
 
      
@@ -38,4 +38,5 @@
 <style>
 	
 	ul, li {padding:0.5rem;; margin: 0}
+    .selected {background-color: blue;}
 </style>

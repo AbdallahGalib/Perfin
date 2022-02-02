@@ -1,5 +1,6 @@
 <span> 
     <!-- <input bind:value = {data.name} placeholder = "Name" /> -->
+    {data.id}
     {#if data.editing || data.adding}
         <input bind:value = {data.name} placeholder = "Name" />
         <input bind:value = {data.amount} placeholder = "Amount" />

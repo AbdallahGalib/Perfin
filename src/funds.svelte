@@ -1,11 +1,11 @@
 <div>
     <h1 class = "text-3xl bg-yellow-300 px-2">Funds</h1>
 	<ul>
-		{#each funds as fund}
+		{#each $funds as fund}
 		{#if fund.editing}
 			<Editor data={fund}/>
 		{:else}
-			<li full grid-2 class = "fund" class:selected = "{selectedFund == fund}" on:click = {()=>edit(fund)}><span>{fund.name}</span><span amount>{fund.amount} {fund.cur || 'TK.'}</span></li>
+			<li full grid-2 class = "fund" class:selected = "{selected == fund}" on:click = {()=>edit(fund)}><span>{fund.name}</span><span amount>{fund.amount} {fund.cur || 'TK.'}</span></li>
 		{/if}
 		
 		{/each}
@@ -13,22 +13,16 @@
 </div>
 
 <script>
-	import {data} from './store.js'
+	import {funds} from './store.js'
 	import Editor from './editor.svelte'
-	let selectedFund
+	let selected
 	function edit(fund){
-		if(selectedFund)
-			selectedFund.editing = false
-		selectedFund = fund; 
-		selectedFund.editing = true
-		funds = [...funds]
+		if(selected)
+		selected.editing = false
+		selected = fund; 
+		selected.editing = true
+		// funds = [...funds]
 	}
-	let funds = [
-		{name:'Wallet', amount:1000}, 
-		{name:'Bank', amount:100000}, 
-		{name:'Drawer', amount:2000}, 
-		{name:'Almira', amount:2000, cur:'$'}
-	]
 </script>
 		 
 <style>

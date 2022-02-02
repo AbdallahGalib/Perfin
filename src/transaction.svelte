@@ -1,10 +1,11 @@
 
 <div>
     <Editor data={data}/>
+	<button on:click = "{remove(data)}">remove</button>
 </div>
 
 <script>
-	// import {data} from './store.js'
+	import {transactions} from './store.js'
     export let data;
 	import Editor from './editor.svelte'
 	let selected
@@ -15,6 +16,11 @@
 		selected.editing = true
 		data = {...data}
 	}
+
+    function remove(transaction){
+        transactions.update(arr => [...$transactions.filter(item => item !== transaction)])
+    }
+	
 	// let funds = [
 	// 	{name:'Where?', Answer:0}, 
 	// 	{name:'Why?', Answer:0}, 
