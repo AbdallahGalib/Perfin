@@ -13,8 +13,8 @@
 </div>
 
 <script>
-	import {funds} from './store.js'
-	import Editor from './editor.svelte'
+	import {funds} from '../lib/store.js'
+	import Editor from '../components/editor.svelte'
 	let selected
 	function edit(fund){
 		if(selected)

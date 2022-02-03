@@ -2,7 +2,7 @@ import {writable} from 'svelte/store'
 // localStorage.setItem("transactions", '[]')
 // localStorage.setItem("funds", '[]')
 let transactions = localStorage.getItem("transactions") || '[]'
-transactions =JSON.parse(transactions)
+transactions = transactions == '[object Object]' ? [] : JSON.parse(transactions)
 transactions = writable(transactions)//
 
 transactions.subscribe(list => {
@@ -10,11 +10,12 @@ transactions.subscribe(list => {
     localStorage.setItem("transactions", JSON.stringify(list));
 })
 
-// let funds =  JSON.parse(localStorage.getItem("funds"))
-// funds = writable(funds)//
+let funds = localStorage.getItem("funds") || '[]'
+funds = funds == '[object Object]' ? [] : JSON.parse(funds)
+funds = writable(funds)
 
-// funds.subscribe(list => {
-//     localStorage.setItem("funds", list);
-// })
+funds.subscribe(list => {
+    localStorage.setItem("funds", list);
+})
 
-export {transactions}
+export {transactions, funds}

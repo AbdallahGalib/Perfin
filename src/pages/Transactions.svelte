@@ -14,9 +14,9 @@
 </div>
 
 <script>
-	import {transactions} from './store.js'
-	import Editor from './editor.svelte'
-	import Transaction from './Transaction.svelte'
+	import {transactions} from '../lib/store.js'
+	import Editor from '../components/editor.svelte'
+	import Transaction from '../components/Transaction.svelte'
 	let selected
 	// transactions = localStorage.getItem('transactions')
     // transactions = transactions ? JSON.parse(transactions) : []
@@ -37,6 +37,6 @@
 		 
 <style>
 	
-	ul, li {padding:0.5rem;; margin: 0}
+	ul, li {padding:0.4rem;; margin: 0}
     .selected {background-color: rgb(100, 100, 100);}
 </style>

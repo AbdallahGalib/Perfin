@@ -5,9 +5,9 @@
 </div>
 
 <script>
-	import {transactions} from './store.js'
+	import {transactions} from '../lib/store.js'
     export let data;
-	import Editor from './editor.svelte'
+	import Editor from '../components/editor.svelte'
 	let selected
 	function edit(item){
 		if(selected)
