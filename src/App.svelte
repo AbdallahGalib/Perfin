@@ -11,6 +11,6 @@
 	<!-- <a href = "/article/the special one" use:link>Funds</a> |  -->
 	<!-- <a href = "/somethingelse" use:link>Unknown</a> -->
 	<a class = "ml-auto			" href = "/signin" use:link>Sign in</a>
-	<a  class = "ml             " href = "/signup" use:link>Sign up</a>
+	<a class = "ml		" href = "/signup" use:link>Sign up</a>
 </nav>
 <Router {routes}/>

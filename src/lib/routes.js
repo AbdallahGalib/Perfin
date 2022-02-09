@@ -4,6 +4,7 @@ import Funds from "../pages/Funds.svelte";
 import Transactions from "../pages/Transactions.svelte";
 import NotFound from "../pages/NotFound.svelte";
 import Operations from "../pages/Operations.svelte";
+import Signup from "../pages/Signup.svelte";
 
 export const routes = {
   "/": Home,
@@ -12,5 +13,6 @@ export const routes = {
   "/funds": Funds,
   "/signin": Signin,
   "/operations": Operations,
+  "/signup": Signup,
   "*": NotFound
 };
